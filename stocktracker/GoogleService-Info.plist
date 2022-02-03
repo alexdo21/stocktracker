@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>420488605835-a48i43r6ag8kdu43pvj6cm7k0rn4oacq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.420488605835-a48i43r6ag8kdu43pvj6cm7k0rn4oacq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQs9lkNKLxK4D0fSIgBPjyjbAB1Mip81k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>420488605835</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>AlexDo.stocktracker</string>
+	<key>PROJECT_ID</key>
+	<string>stock-tracker-998b3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>stock-tracker-998b3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:420488605835:ios:0f511a88aa5b194181648e</string>
+</dict>
+</plist>

@@ -3,27 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9DACD6AD3033871D0C69872 /* Pods_stocktracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344E63571CCD43791060E55F /* Pods_stocktracker.framework */; };
+		D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */; };
 		D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452426B8416E00012125 /* AppDelegate.swift */; };
 		D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452626B8416E00012125 /* SceneDelegate.swift */; };
-		D6A2452926B8416E00012125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* ViewController.swift */; };
-		D6A2452C26B8416E00012125 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452A26B8416E00012125 /* Main.storyboard */; };
+		D6A2452926B8416E00012125 /* StockListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* StockListController.swift */; };
 		D6A2452E26B8417100012125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452D26B8417100012125 /* Assets.xcassets */; };
 		D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452F26B8417100012125 /* LaunchScreen.storyboard */; };
+		D6A2453A26B9C29500012125 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453926B9C29500012125 /* BaseCell.swift */; };
+		D6A2453F26B9C78100012125 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453E26B9C78100012125 /* StockCell.swift */; };
+		D6A2454226B9C80700012125 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454126B9C80700012125 /* Stock.swift */; };
+		D6A2454526B9C8AA00012125 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454426B9C8AA00012125 /* StockService.swift */; };
+		D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454626BB6D0900012125 /* TabBarController.swift */; };
+		D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454A26BC633F00012125 /* SearchStockController.swift */; };
+		D6A2454E26C3541700012125 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454D26C3541700012125 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		344E63571CCD43791060E55F /* Pods_stocktracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stocktracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D708441CB5811426CB823D0 /* Pods-stocktracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.debug.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.debug.xcconfig"; sourceTree = "<group>"; };
+		D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6A2452126B8416E00012125 /* stocktracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stocktracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A2452426B8416E00012125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6A2452626B8416E00012125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6A2452826B8416E00012125 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D6A2452B26B8416E00012125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D6A2452826B8416E00012125 /* StockListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListController.swift; sourceTree = "<group>"; };
 		D6A2452D26B8417100012125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6A2453026B8417100012125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6A2453226B8417100012125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A2453926B9C29500012125 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		D6A2453E26B9C78100012125 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		D6A2454126B9C80700012125 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		D6A2454426B9C8AA00012125 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
+		D6A2454626BB6D0900012125 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D6A2454A26BC633F00012125 /* SearchStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockController.swift; sourceTree = "<group>"; };
+		D6A2454D26C3541700012125 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.release.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DACD6AD3033871D0C69872 /* Pods_stocktracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18CDCD44CCC19BE74273FA8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D708441CB5811426CB823D0 /* Pods-stocktracker.debug.xcconfig */,
+				E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8FD0E8908100DFCAE2CD8950 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				344E63571CCD43791060E55F /* Pods_stocktracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6A2451826B8416E00012125 = {
 			isa = PBXGroup;
 			children = (
 				D6A2452326B8416E00012125 /* stocktracker */,
 				D6A2452226B8416E00012125 /* Products */,
+				18CDCD44CCC19BE74273FA8D /* Pods */,
+				8FD0E8908100DFCAE2CD8950 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +94,70 @@
 		D6A2452326B8416E00012125 /* stocktracker */ = {
 			isa = PBXGroup;
 			children = (
+				D6A2454C26C3540300012125 /* Helpers */,
+				D6A2454326B9C89A00012125 /* Services */,
+				D6A2454026B9C7F900012125 /* Models */,
+				D6A2453D26B9C6F400012125 /* Controllers */,
+				D6A2453B26B9C6C900012125 /* Views */,
+				D6A2453826B9C28900012125 /* Base */,
 				D6A2452426B8416E00012125 /* AppDelegate.swift */,
 				D6A2452626B8416E00012125 /* SceneDelegate.swift */,
-				D6A2452826B8416E00012125 /* ViewController.swift */,
-				D6A2452A26B8416E00012125 /* Main.storyboard */,
 				D6A2452D26B8417100012125 /* Assets.xcassets */,
 				D6A2452F26B8417100012125 /* LaunchScreen.storyboard */,
+				D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */,
 				D6A2453226B8417100012125 /* Info.plist */,
 			);
 			path = stocktracker;
+			sourceTree = "<group>";
+		};
+		D6A2453826B9C28900012125 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2453926B9C29500012125 /* BaseCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D6A2453B26B9C6C900012125 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2453E26B9C78100012125 /* StockCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D6A2453D26B9C6F400012125 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2452826B8416E00012125 /* StockListController.swift */,
+				D6A2454626BB6D0900012125 /* TabBarController.swift */,
+				D6A2454A26BC633F00012125 /* SearchStockController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D6A2454026B9C7F900012125 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2454126B9C80700012125 /* Stock.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D6A2454326B9C89A00012125 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2454426B9C8AA00012125 /* StockService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D6A2454C26C3540300012125 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D6A2454D26C3541700012125 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6A2453526B8417100012125 /* Build configuration list for PBXNativeTarget "stocktracker" */;
 			buildPhases = (
+				B174D6780FEB7368574EFDCC /* [CP] Check Pods Manifest.lock */,
 				D6A2451D26B8416E00012125 /* Sources */,
 				D6A2451E26B8416E00012125 /* Frameworks */,
 				D6A2451F26B8416E00012125 /* Resources */,
+				050491A936F6BE9E4CFA9E3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +221,75 @@
 			files = (
 				D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */,
 				D6A2452E26B8417100012125 /* Assets.xcassets in Resources */,
-				D6A2452C26B8416E00012125 /* Main.storyboard in Resources */,
+				D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		050491A936F6BE9E4CFA9E3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stocktracker/Pods-stocktracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stocktracker/Pods-stocktracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-stocktracker/Pods-stocktracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B174D6780FEB7368574EFDCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-stocktracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D6A2451D26B8416E00012125 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A2452926B8416E00012125 /* ViewController.swift in Sources */,
+				D6A2453A26B9C29500012125 /* BaseCell.swift in Sources */,
+				D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */,
+				D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */,
+				D6A2452926B8416E00012125 /* StockListController.swift in Sources */,
+				D6A2454226B9C80700012125 /* Stock.swift in Sources */,
+				D6A2454E26C3541700012125 /* Extensions.swift in Sources */,
+				D6A2454526B9C8AA00012125 /* StockService.swift in Sources */,
 				D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */,
 				D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */,
+				D6A2453F26B9C78100012125 /* StockCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D6A2452A26B8416E00012125 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6A2452B26B8416E00012125 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D6A2452F26B8417100012125 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +419,7 @@
 		};
 		D6A2453626B8417100012125 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D708441CB5811426CB823D0 /* Pods-stocktracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +439,7 @@
 		};
 		D6A2453726B8417100012125 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
