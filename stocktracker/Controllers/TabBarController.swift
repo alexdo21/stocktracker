@@ -23,7 +23,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNewEntry()
         
         self.hidesBottomBarWhenPushed = false
         tabBar.tintColor = .black
@@ -47,10 +46,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         self.setViewControllers([stockListVC, searchVC], animated: false)
         self.selectedViewController = stockListVC
 
-    }
-    
-    private func addNewEntry() {
-        database.child("Name").setValue("Alex Do")
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

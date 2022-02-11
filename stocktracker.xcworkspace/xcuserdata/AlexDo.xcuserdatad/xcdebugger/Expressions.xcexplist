@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in StockListController.fetchStocks():StockListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "StockQuoteCell.stock.didset:StockQuoteCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "priceLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StockListController.tableView(_:cellForRowAt:):StockListController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in StockService.fetchStocks(symbols:completion:):StockService.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

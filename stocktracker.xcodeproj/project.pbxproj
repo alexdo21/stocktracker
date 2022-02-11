@@ -14,13 +14,14 @@
 		D6A2452926B8416E00012125 /* StockListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* StockListController.swift */; };
 		D6A2452E26B8417100012125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452D26B8417100012125 /* Assets.xcassets */; };
 		D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452F26B8417100012125 /* LaunchScreen.storyboard */; };
-		D6A2453A26B9C29500012125 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453926B9C29500012125 /* BaseCell.swift */; };
-		D6A2453F26B9C78100012125 /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453E26B9C78100012125 /* StockCell.swift */; };
+		D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */; };
+		D6A2453F26B9C78100012125 /* StockQuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453E26B9C78100012125 /* StockQuoteCell.swift */; };
 		D6A2454226B9C80700012125 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454126B9C80700012125 /* Stock.swift */; };
 		D6A2454526B9C8AA00012125 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454426B9C8AA00012125 /* StockService.swift */; };
 		D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454626BB6D0900012125 /* TabBarController.swift */; };
 		D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454A26BC633F00012125 /* SearchStockController.swift */; };
 		D6A2454E26C3541700012125 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454D26C3541700012125 /* Extensions.swift */; };
+		D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,13 +35,14 @@
 		D6A2452D26B8417100012125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6A2453026B8417100012125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6A2453226B8417100012125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6A2453926B9C29500012125 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
-		D6A2453E26B9C78100012125 /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		D6A2453E26B9C78100012125 /* StockQuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuoteCell.swift; sourceTree = "<group>"; };
 		D6A2454126B9C80700012125 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D6A2454426B9C8AA00012125 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
 		D6A2454626BB6D0900012125 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D6A2454A26BC633F00012125 /* SearchStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockController.swift; sourceTree = "<group>"; };
 		D6A2454D26C3541700012125 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.release.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +115,8 @@
 		D6A2453826B9C28900012125 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D6A2453926B9C29500012125 /* BaseCell.swift */,
+				D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */,
+				D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -121,7 +124,7 @@
 		D6A2453B26B9C6C900012125 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D6A2453E26B9C78100012125 /* StockCell.swift */,
+				D6A2453E26B9C78100012125 /* StockQuoteCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,8 +277,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A2453A26B9C29500012125 /* BaseCell.swift in Sources */,
+				D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */,
 				D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */,
+				D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */,
 				D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */,
 				D6A2452926B8416E00012125 /* StockListController.swift in Sources */,
 				D6A2454226B9C80700012125 /* Stock.swift in Sources */,
@@ -283,7 +287,7 @@
 				D6A2454526B9C8AA00012125 /* StockService.swift in Sources */,
 				D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */,
 				D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */,
-				D6A2453F26B9C78100012125 /* StockCell.swift in Sources */,
+				D6A2453F26B9C78100012125 /* StockQuoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
