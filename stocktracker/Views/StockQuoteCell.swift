@@ -12,20 +12,15 @@ class StockQuoteCell: CustomTableViewCell {
     var stock: StockQuote? {
         didSet {
             tickerLabel.text = stock?.globalQuote.symbol
-            corpLabel.text = "ABC"
+            corpLabel.text = stock?.name
             if let price = stock?.globalQuote.price, let priceFloat = Float(price) {
                 let roundedPrice = String(format: "%.2f", priceFloat)
                 priceLabel.text = roundedPrice
             }
             if let priceChange = stock?.globalQuote.change, let priceChangeFloat = Float(priceChange) {
                 let roundedPriceChange = String(format: "%.2f", priceChangeFloat)
-                if (priceChangeFloat < 0) {
-                    priceChangeLabel.backgroundColor = .systemRed
-                    priceChangeLabel.text = "-\(roundedPriceChange)"
-                } else {
-                    priceChangeLabel.backgroundColor = .green
-                    priceChangeLabel.text = "+\(roundedPriceChange)"
-                }
+                priceChangeLabel.backgroundColor = priceChangeFloat < 0 ? .red : .green
+                priceChangeLabel.text = "\(roundedPriceChange)"
             }
 
         }

@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
+    
     
     private func setTitleForNavBarItem(selected tabBarItem: UITabBarItem) {
         if let title = tabBarItem.title {
@@ -18,9 +18,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             viewControllers?[tabBarItem.tag].navigationItem.titleView = titleLabel
         }
     }
-    
-    private let database = Database.database().reference()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,17 +33,22 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             tabBar.scrollEdgeAppearance = barAppearance
         }
         
-        let stockListVC = UINavigationController(rootViewController: StockListController())
-        let stockListTabItem = UITabBarItem(title: "Stocks", image: UIImage(systemName: "house"), tag: 0)
-        stockListVC.tabBarItem = stockListTabItem
+        let watchlistVC = WatchlistController()
         
-        let searchVC = UINavigationController(rootViewController: SearchStockController())
+        let homeController = HomeController()
+        homeController.watchlistController = watchlistVC
+        let homeNVC = UINavigationController(rootViewController: homeController)
+        let homeTabItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        homeNVC.tabBarItem = homeTabItem
+        
+        let searchController = SearchController()
+        searchController.watchlistController = watchlistVC
+        let searchNVC = UINavigationController(rootViewController: searchController)
         let searchTabItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
-        searchVC.tabBarItem = searchTabItem
+        searchNVC.tabBarItem = searchTabItem
         
-        self.setViewControllers([stockListVC, searchVC], animated: false)
-        self.selectedViewController = stockListVC
-
+        self.setViewControllers([homeNVC, searchNVC], animated: false)
+        self.selectedViewController = homeNVC
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

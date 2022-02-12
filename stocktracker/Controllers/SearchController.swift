@@ -7,9 +7,13 @@
 
 import UIKit
 
-class SearchStockController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    var watchlistController: WatchlistController?
+    var stocks: [StockQuote] {
+        return watchlistController?.stocks ?? []
+    }
     
-    var stockMatches = [StockSearchResults.Match]()
+    var stockMatches: [StockSearchResults.Match]?
     
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
@@ -32,11 +36,7 @@ class SearchStockController: UIViewController, UISearchBarDelegate, UITableViewD
         searchController.searchBar.placeholder = "to the moon 🚀"
         searchController.obscuresBackgroundDuringPresentation = false
         
-        setupTableView()
-    }
-        
-    func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.register(StockSearchResultCell.self, forCellReuseIdentifier: StockSearchResultCell.identifier)
         view.addSubview(tableView)
     }
     
@@ -46,7 +46,7 @@ class SearchStockController: UIViewController, UISearchBarDelegate, UITableViewD
         self.searchTask?.cancel()
         
         let task = DispatchWorkItem { [weak self] in
-            StockService.sharedInstance.fetchBestMatchingStocksBy(keyword: searchText, completion: { (stockMatches: [StockSearchResults.Match]) in
+            AlphaVantageService.sharedInstance.fetchBestMatchingStocksBy(keyword: searchText, completion: { (stockMatches: [StockSearchResults.Match]) in
                 print(stockMatches.count)
                 self?.stockMatches = stockMatches
                 self?.tableView.reloadData()
@@ -59,24 +59,40 @@ class SearchStockController: UIViewController, UISearchBarDelegate, UITableViewD
     }
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.stockMatches.removeAll()
+        self.stockMatches?.removeAll()
         self.tableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        tableViewCell.textLabel?.text = "\(stockMatches[indexPath.item].symbol) • \(stockMatches[indexPath.item].name)"
-        return tableViewCell
+        let stockSearchResultCell = tableView.dequeueReusableCell(withIdentifier: StockSearchResultCell.identifier, for: indexPath) as! StockSearchResultCell
+        
+        stockSearchResultCell.preservesSuperviewLayoutMargins = false
+        stockSearchResultCell.separatorInset = UIEdgeInsets.zero
+        stockSearchResultCell.layoutMargins = UIEdgeInsets.zero
+        
+        if var stockMatch = stockMatches?[indexPath.row] {
+            if let existingStock = stocks.first(where: {$0.globalQuote.symbol == stockMatch.symbol}) {
+                if let stockId = existingStock.id {
+                    stockMatch.id = stockId
+                }
+                stockMatch.isFavorited = true
+            }
+            stockSearchResultCell.stockMatch = stockMatch
+        }
+
+        return stockSearchResultCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stockMatches.count
+        return stockMatches?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // navigationController?.pushViewController(UIViewController(), animated: true)
     }
     
 }

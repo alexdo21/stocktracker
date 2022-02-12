@@ -8,6 +8,9 @@
 import UIKit
 
 struct StockQuote: Codable {
+    var id: String?
+    var name: String?
+    
     struct GlobalQuote: Codable {
         let symbol, open, high, low, price, volume, latestTradingDay, previousClose, change, changePercent: String
         
@@ -34,6 +37,8 @@ struct StockQuote: Codable {
 
 struct StockSearchResults: Codable {
     struct Match: Codable {
+        var id: String = ""
+        var isFavorited: Bool = false
         let symbol, name, type, region, marketOpen, marketClose, timezone, currency, matchScore: String
         
         enum CodingKeys: String, CodingKey {

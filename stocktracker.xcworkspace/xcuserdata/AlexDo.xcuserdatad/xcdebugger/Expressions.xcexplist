@@ -6,18 +6,32 @@
          contextName = "closure #1 in StockListController.fetchStocks():StockListController.swift">
       </ContextState>
       <ContextState
-         contextName = "StockQuoteCell.stock.didset:StockQuoteCell.swift">
+         contextName = "TabBarController.viewDidLoad():TabBarController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "StockSearchResultCell.handleAddDelete():StockSearchResultCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "priceLabel.text">
+               value = "self.stockMatch?.favorite">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeController.viewWillAppear(_:):HomeController.swift">
       </ContextState>
       <ContextState
          contextName = "StockListController.tableView(_:cellForRowAt:):StockListController.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in StockService.fetchStocks(symbols:completion:):StockService.swift">
+      </ContextState>
+      <ContextState
+         contextName = "StockQuoteCell.stock.didset:StockQuoteCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "priceLabel.text">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

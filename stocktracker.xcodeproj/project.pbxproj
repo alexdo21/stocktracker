@@ -9,17 +9,20 @@
 /* Begin PBXBuildFile section */
 		B9DACD6AD3033871D0C69872 /* Pods_stocktracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344E63571CCD43791060E55F /* Pods_stocktracker.framework */; };
 		D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */; };
+		D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73D27B607430071302E /* StockSearchResultCell.swift */; };
+		D65DC74027B7875D0071302E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73F27B7875D0071302E /* FirebaseService.swift */; };
+		D65DC74227B78F990071302E /* WatchlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC74127B78F990071302E /* WatchlistController.swift */; };
 		D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452426B8416E00012125 /* AppDelegate.swift */; };
 		D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452626B8416E00012125 /* SceneDelegate.swift */; };
-		D6A2452926B8416E00012125 /* StockListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* StockListController.swift */; };
+		D6A2452926B8416E00012125 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* HomeController.swift */; };
 		D6A2452E26B8417100012125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452D26B8417100012125 /* Assets.xcassets */; };
 		D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452F26B8417100012125 /* LaunchScreen.storyboard */; };
 		D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */; };
 		D6A2453F26B9C78100012125 /* StockQuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453E26B9C78100012125 /* StockQuoteCell.swift */; };
 		D6A2454226B9C80700012125 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454126B9C80700012125 /* Stock.swift */; };
-		D6A2454526B9C8AA00012125 /* StockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454426B9C8AA00012125 /* StockService.swift */; };
+		D6A2454526B9C8AA00012125 /* AlphaVantageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454426B9C8AA00012125 /* AlphaVantageService.swift */; };
 		D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454626BB6D0900012125 /* TabBarController.swift */; };
-		D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454A26BC633F00012125 /* SearchStockController.swift */; };
+		D6A2454B26BC633F00012125 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454A26BC633F00012125 /* SearchController.swift */; };
 		D6A2454E26C3541700012125 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454D26C3541700012125 /* Extensions.swift */; };
 		D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -28,19 +31,22 @@
 		344E63571CCD43791060E55F /* Pods_stocktracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stocktracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D708441CB5811426CB823D0 /* Pods-stocktracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.debug.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.debug.xcconfig"; sourceTree = "<group>"; };
 		D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D65DC73D27B607430071302E /* StockSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResultCell.swift; sourceTree = "<group>"; };
+		D65DC73F27B7875D0071302E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		D65DC74127B78F990071302E /* WatchlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistController.swift; sourceTree = "<group>"; };
 		D6A2452126B8416E00012125 /* stocktracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stocktracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A2452426B8416E00012125 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6A2452626B8416E00012125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D6A2452826B8416E00012125 /* StockListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListController.swift; sourceTree = "<group>"; };
+		D6A2452826B8416E00012125 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		D6A2452D26B8417100012125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6A2453026B8417100012125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6A2453226B8417100012125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6A2453E26B9C78100012125 /* StockQuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuoteCell.swift; sourceTree = "<group>"; };
 		D6A2454126B9C80700012125 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
-		D6A2454426B9C8AA00012125 /* StockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockService.swift; sourceTree = "<group>"; };
+		D6A2454426B9C8AA00012125 /* AlphaVantageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageService.swift; sourceTree = "<group>"; };
 		D6A2454626BB6D0900012125 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		D6A2454A26BC633F00012125 /* SearchStockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockController.swift; sourceTree = "<group>"; };
+		D6A2454A26BC633F00012125 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D6A2454D26C3541700012125 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.release.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A2453E26B9C78100012125 /* StockQuoteCell.swift */,
+				D65DC73D27B607430071302E /* StockSearchResultCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,9 +139,10 @@
 		D6A2453D26B9C6F400012125 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D6A2452826B8416E00012125 /* StockListController.swift */,
+				D6A2452826B8416E00012125 /* HomeController.swift */,
 				D6A2454626BB6D0900012125 /* TabBarController.swift */,
-				D6A2454A26BC633F00012125 /* SearchStockController.swift */,
+				D6A2454A26BC633F00012125 /* SearchController.swift */,
+				D65DC74127B78F990071302E /* WatchlistController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,7 +158,8 @@
 		D6A2454326B9C89A00012125 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D6A2454426B9C8AA00012125 /* StockService.swift */,
+				D6A2454426B9C8AA00012125 /* AlphaVantageService.swift */,
+				D65DC73F27B7875D0071302E /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -278,13 +287,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */,
-				D6A2454B26BC633F00012125 /* SearchStockController.swift in Sources */,
+				D6A2454B26BC633F00012125 /* SearchController.swift in Sources */,
 				D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */,
+				D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */,
 				D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */,
-				D6A2452926B8416E00012125 /* StockListController.swift in Sources */,
+				D65DC74227B78F990071302E /* WatchlistController.swift in Sources */,
+				D6A2452926B8416E00012125 /* HomeController.swift in Sources */,
 				D6A2454226B9C80700012125 /* Stock.swift in Sources */,
+				D65DC74027B7875D0071302E /* FirebaseService.swift in Sources */,
 				D6A2454E26C3541700012125 /* Extensions.swift in Sources */,
-				D6A2454526B9C8AA00012125 /* StockService.swift in Sources */,
+				D6A2454526B9C8AA00012125 /* AlphaVantageService.swift in Sources */,
 				D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */,
 				D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */,
 				D6A2453F26B9C78100012125 /* StockQuoteCell.swift in Sources */,

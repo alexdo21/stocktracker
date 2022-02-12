@@ -6,11 +6,13 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
-class StockListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var stocks: [StockQuote]?
+    var watchlistController: WatchlistController?
+    var stocks: [StockQuote] {
+        return watchlistController?.stocks ?? []
+    }
     
     lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -21,32 +23,19 @@ class StockListController: UIViewController, UITableViewDelegate, UITableViewDat
         return tv
     }()
     
-    private let database = Database.database().reference()
-    
-    private func fetchStocks() {
-        // fetch stocks associated with user of this app
-        database.child("symbols").observeSingleEvent(of: .value, with: { snapshot in
-            if snapshot.exists() {
-                var symbols: [String] = []
-                for child in snapshot.children {
-                    let symbolSnapshot = child as? DataSnapshot
-                    let symbol = symbolSnapshot?.value as! String
-                    symbols.append(symbol)
-                }
-                print("FireBase: \(symbols.count)")
-                StockService.sharedInstance.fetchStocks(symbols: symbols, completion: {(stocks: [StockQuote]) in
-                    print("AlphaVantage: \(stocks.count)")
-                    self.stocks = stocks
-                    self.tableView.reloadData()
-                })
-            }
-        })
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        watchlistController?.fetchStocks {
+            self.tableView.reloadData()
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchStocks()
+        watchlistController?.fetchStocks {
+            self.tableView.reloadData()
+        }
         
         let barAppearance = UINavigationBarAppearance()
         barAppearance.backgroundColor = .white
@@ -60,12 +49,17 @@ class StockListController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let stockQuoteCell = tableView.dequeueReusableCell(withIdentifier: StockQuoteCell.identifier, for: indexPath) as! StockQuoteCell
-        stockQuoteCell.stock = stocks?[indexPath.item]
+        
+        stockQuoteCell.preservesSuperviewLayoutMargins = false
+        stockQuoteCell.separatorInset = UIEdgeInsets.zero
+        stockQuoteCell.layoutMargins = UIEdgeInsets.zero
+        
+        stockQuoteCell.stock = stocks[indexPath.row]
         return stockQuoteCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stocks?.count ?? 0
+        return stocks.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -82,8 +76,12 @@ class StockListController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _, indexPath in
-            self.stocks?.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            if let stock = self.watchlistController?.stocks?[indexPath.row], let stockId = stock.id {
+                FirebaseService.sharedInstance.deleteStockFromWatchlist(stockId: stockId) {
+                    self.watchlistController?.stocks?.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+            }
         }
         
         return [deleteAction]
