@@ -20,27 +20,37 @@ class AlphaVantageService: NSObject {
             completion([])
         }
         guard let url = URL(string: BASE_URL + "\(SEARCH_ENDPOINT)&keywords=\(keyword)&apikey=\(API_KEY)") else { return }
-        
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if error != nil {
                 print(error ?? "")
                 return
             }
-            
             guard let data = data, let stockResults = try? JSONDecoder().decode(StockSearchResults.self, from: data) else {
                 return
             }
-
             DispatchQueue.main.async {
                 completion(stockResults.bestMatches)
             }
-            
         }).resume()
     }
     
-//    func fetchQuoteFor(stockId: String, symbol: String, name: String)
+    func fetchQuoteFor(_ stockId: String, _ symbol: String, _ name: String, completion: @escaping (StockQuote) -> ()) {
+        guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error ?? "")
+            }
+            guard let data = data, var stock = try? JSONDecoder().decode(StockQuote.self, from: data) else { return }
+            DispatchQueue.main.async {
+                stock.id = stockId
+                stock.name = name
+                completion(stock)
+            }
+        }
+        task.resume()
+    }
 
-    func fetchStockQuotesFromUserWatchlist(userWatchlist: [String:[String:String]], completion: @escaping ([StockQuote]) -> ()) {
+    func fetchStockQuotesFrom(userWatchlist: [String:[String:String]], completion: @escaping ([StockQuote]) -> ()) {
         let dispatchGroup = DispatchGroup()
         var stocks: [StockQuote] = []
         for (stockId, stockData) in userWatchlist {

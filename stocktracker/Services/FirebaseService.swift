@@ -12,15 +12,27 @@ class FirebaseService: NSObject {
     static let sharedInstance = FirebaseService()
     let database = Database.database().reference()
     
-//    func listenToUserWatchlist(completion: @escaping ([[String:[String:String]]]) -> ()) {
-//        database.child("testlist").observe(.childAdded, with: { snapshot in
-//            if snapshot.exists() {
-//                let stockId = snapshot.key
-//                let stock = snapshot.value as! [String:String]
-//                completion([stockId:stock])
-//            }
-//        })
-//    }
+    func listenForUserWatchlistAdd(completion: @escaping (String, String, String) -> ()) {
+        database.child("testlist").observe(.childAdded, with: { snapshot in
+            if snapshot.exists() {
+                let stockId = snapshot.key
+                let stock = snapshot.value as! [String:Any]
+                let symbol = stock["symbol"] as! String
+                let name = stock["name"] as! String
+                print("\(snapshot.key) added")
+                completion(stockId, symbol, name)
+            }
+        })
+    }
+    
+    func listenForUserWatchlistDelete(completion: @escaping (String) -> ()) {
+        database.child("testlist").observe(.childRemoved, with: { snapshot in
+            if snapshot.exists() {
+                print("\(snapshot.key) deleted")
+                completion(snapshot.key)
+            }
+        })
+    }
     
     func fetchUserWatchlist(completion: @escaping ([String:[String:String]]) -> ()) {
         database.child("testlist").observeSingleEvent(of: .value, with: { snapshot in

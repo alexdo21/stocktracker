@@ -8,16 +8,6 @@
 import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
-    
-    
-    private func setTitleForNavBarItem(selected tabBarItem: UITabBarItem) {
-        if let title = tabBarItem.title {
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-            titleLabel.text = title
-            titleLabel.font = UIFont.systemFont(ofSize: 30)
-            viewControllers?[tabBarItem.tag].navigationItem.titleView = titleLabel
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +39,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         self.setViewControllers([homeNVC, searchNVC], animated: false)
         self.selectedViewController = homeNVC
-    }
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        setTitleForNavBarItem(selected: item)
     }
 }

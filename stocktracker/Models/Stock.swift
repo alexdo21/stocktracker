@@ -37,7 +37,7 @@ struct StockQuote: Codable {
 
 struct StockSearchResults: Codable {
     struct Match: Codable {
-        var id: String = ""
+        var id: String?
         var isFavorited: Bool = false
         let symbol, name, type, region, marketOpen, marketClose, timezone, currency, matchScore: String
         

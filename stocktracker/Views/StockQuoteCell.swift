@@ -65,6 +65,10 @@ class StockQuoteCell: CustomTableViewCell {
     override func setupViews() {
         super.setupViews()
         
+        self.preservesSuperviewLayoutMargins = false
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
+        
         contentView.addSubview(tickerLabel)
         contentView.addSubview(corpLabel)
         contentView.addSubview(stockGraph)
@@ -79,7 +83,5 @@ class StockQuoteCell: CustomTableViewCell {
         addConstrintsWithFormat(format: "V:|-19-[v0(29)]-11-[v1(21)]-20-|", views: tickerLabel, corpLabel)
         addConstrintsWithFormat(format: "V:|-14-[v0(69)]-17-|", views: stockGraph)
         addConstrintsWithFormat(format: "V:|-31-[v0(17)]-5-[v1(16)]-31-|", views: priceLabel, priceChangeLabel)
-
-        
     }
 }

@@ -8,39 +8,37 @@
 import UIKit
 
 class WatchlistController {
-    var stocks: [StockQuote]?
+    var stocks: [StockQuote] = []
     
-//    func listenForUpdates() {
-//        FirebaseService.sharedInstance.listenToUserWatchlist { newStock in
-//            AlphaVantageService.sharedInstance.fetchQuoteFor(stock: newStock) { (stock: StockQuote) in
-//                self.stocks.append(stock)
-//                
-//            }
-//            
-//        }
-//    }
+    func listenForUpdates(completion: @escaping () -> Void) {
+        FirebaseService.sharedInstance.listenForUserWatchlistAdd { (stockId, symbol, name) in
+            AlphaVantageService.sharedInstance.fetchQuoteFor(stockId, symbol, name) { (stock: StockQuote) in
+                print("AlphaVantage: \(stock)")
+                self.stocks.append(stock)
+                completion()
+            }
+        }
+        FirebaseService.sharedInstance.listenForUserWatchlistDelete { (stockId) in
+            if let index = self.stocks.firstIndex(where: { $0.id == stockId }) {
+                self.stocks.remove(at: index)
+            }
+        }
+    }
     
     func fetchStocks(completion: @escaping () -> Void) {
         FirebaseService.sharedInstance.fetchUserWatchlist { userWatchlist in
             print("Firebase: \(userWatchlist.count)")
             if !userWatchlist.isEmpty {
-                AlphaVantageService.sharedInstance.fetchStockQuotesFromUserWatchlist(userWatchlist: userWatchlist) { (stocks: [StockQuote]) in
+                AlphaVantageService.sharedInstance.fetchStockQuotesFrom(userWatchlist: userWatchlist) { (stocks: [StockQuote]) in
                     print("AlphaVantage: \(stocks.count)")
-                    self.stocks = stocks
-                    completion()
+                    if stocks.isEmpty {
+                        completion()
+                    } else {
+                        self.stocks = stocks
+                        completion()
+                    }
                 }
             }
         }
-//        FirebaseService.sharedInstance.database.child("userWatchlist").observeSingleEvent(of: .value, with: { snapshot in
-//            if snapshot.exists() {
-//                let userWatchlist = snapshot.value as! [String:String]
-//                print("Firebase: \(userWatchlist.count)")
-//                AlphaVantageService.sharedInstance.fetchStocksFromUserWatchlist(userWatchlist: userWatchlist) { (stocks: [StockQuote]) in
-//                    print("AlphaVantage: \(stocks.count)")
-//                    self.stocks = stocks
-//                    completion()
-//                }
-//            }
-//        })
     }
 }

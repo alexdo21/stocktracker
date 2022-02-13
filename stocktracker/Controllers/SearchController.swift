@@ -55,7 +55,6 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
         
         self.searchTask = task
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: task)
-        
     }
         
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -69,11 +68,6 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let stockSearchResultCell = tableView.dequeueReusableCell(withIdentifier: StockSearchResultCell.identifier, for: indexPath) as! StockSearchResultCell
-        
-        stockSearchResultCell.preservesSuperviewLayoutMargins = false
-        stockSearchResultCell.separatorInset = UIEdgeInsets.zero
-        stockSearchResultCell.layoutMargins = UIEdgeInsets.zero
-        
         if var stockMatch = stockMatches?[indexPath.row] {
             if let existingStock = stocks.first(where: {$0.globalQuote.symbol == stockMatch.symbol}) {
                 if let stockId = existingStock.id {

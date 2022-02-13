@@ -14,29 +14,41 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return watchlistController?.stocks ?? []
     }
     
+    let refreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(refreshWatchlist), for: .valueChanged)
+        return rc
+    }()
+    
+    @objc private func refreshWatchlist() {
+        self.watchlistController?.fetchStocks {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
+
     lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .systemGray6
         tv.dataSource = self
         tv.delegate = self
+        tv.refreshControl = refreshControl
         tv.frame = view.bounds
         return tv
     }()
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        watchlistController?.fetchStocks {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        watchlistController?.fetchStocks {
+        self.watchlistController?.listenForUpdates() {
             self.tableView.reloadData()
         }
-        
+                
         let barAppearance = UINavigationBarAppearance()
         barAppearance.backgroundColor = .white
         navigationController?.navigationBar.standardAppearance = barAppearance
@@ -49,11 +61,6 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let stockQuoteCell = tableView.dequeueReusableCell(withIdentifier: StockQuoteCell.identifier, for: indexPath) as! StockQuoteCell
-        
-        stockQuoteCell.preservesSuperviewLayoutMargins = false
-        stockQuoteCell.separatorInset = UIEdgeInsets.zero
-        stockQuoteCell.layoutMargins = UIEdgeInsets.zero
-        
         stockQuoteCell.stock = stocks[indexPath.row]
         return stockQuoteCell
     }
@@ -76,14 +83,13 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { _, indexPath in
-            if let stock = self.watchlistController?.stocks?[indexPath.row], let stockId = stock.id {
+            if let stock = self.watchlistController?.stocks[indexPath.row], let stockId = stock.id {
                 FirebaseService.sharedInstance.deleteStockFromWatchlist(stockId: stockId) {
-                    self.watchlistController?.stocks?.remove(at: indexPath.row)
+                    self.watchlistController?.stocks.remove(at: indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: .automatic)
                 }
             }
         }
-        
         return [deleteAction]
     }
 }

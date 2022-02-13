@@ -60,13 +60,11 @@ class StockSearchResultCell: CustomTableViewCell {
                 }
             } else if let stockId = stockMatch?.id {
                 // delete
-                if !stockId.isEmpty {
-                    FirebaseService.sharedInstance.deleteStockFromWatchlist(stockId: stockId) {
-                        self.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-                        self.stockMatch?.id = ""
-                        self.stockMatch?.isFavorited = false
-                        print("Favorite deleted!")
-                    }
+                FirebaseService.sharedInstance.deleteStockFromWatchlist(stockId: stockId) {
+                    self.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
+                    self.stockMatch?.id = ""
+                    self.stockMatch?.isFavorited = false
+                    print("Favorite deleted!")
                 }
             }
         }
@@ -74,6 +72,10 @@ class StockSearchResultCell: CustomTableViewCell {
     
     override func setupViews() {
         super.setupViews()
+        
+        self.preservesSuperviewLayoutMargins = false
+        self.separatorInset = UIEdgeInsets.zero
+        self.layoutMargins = UIEdgeInsets.zero
         
         contentView.addSubview(tickerRegionTypeLabel)
         contentView.addSubview(corpLabel)
