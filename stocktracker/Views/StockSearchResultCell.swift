@@ -82,11 +82,11 @@ class StockSearchResultCell: CustomTableViewCell {
         contentView.addSubview(favoriteButton)
         
         // Horizontal Constraints
-        addConstrintsWithFormat(format: "H:|-9-[v0(307)]-38-[v1(24)]-12-|", views: tickerRegionTypeLabel, favoriteButton)
-        addConstrintsWithFormat(format: "H:|-9-[v0(307)]-38-[v1(24)]-12-|", views: corpLabel, favoriteButton)
+        addConstraintsWithFormat(format: "H:|-9-[v0(307)]-38-[v1(24)]-12-|", views: tickerRegionTypeLabel, favoriteButton)
+        addConstraintsWithFormat(format: "H:|-9-[v0(307)]-38-[v1(24)]-12-|", views: corpLabel, favoriteButton)
         
         // Vertical Constraints
-        addConstrintsWithFormat(format: "V:|-6-[v0(22)]-0-[v1(20)]-2-|", views: tickerRegionTypeLabel, corpLabel)
-        addConstrintsWithFormat(format: "V:|-13-[v0(24)]-13-|", views: favoriteButton)
+        addConstraintsWithFormat(format: "V:|-6-[v0(22)]-0-[v1(20)]-2-|", views: tickerRegionTypeLabel, corpLabel)
+        addConstraintsWithFormat(format: "V:|-13-[v0(24)]-13-|", views: favoriteButton)
     }
 }

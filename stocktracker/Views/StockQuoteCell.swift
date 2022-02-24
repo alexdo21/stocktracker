@@ -76,12 +76,12 @@ class StockQuoteCell: CustomTableViewCell {
         contentView.addSubview(priceChangeLabel)
         
         // Horizontal Constraints
-        addConstrintsWithFormat(format: "H:|-16-[v0(118)]-16-[v1(127)]-10-[v2(93)]-10-|", views: tickerLabel, stockGraph, priceLabel)
-        addConstrintsWithFormat(format: "H:|-16-[v0(115)]-19-[v1(127)]-34-[v2(45)]-34-|", views: corpLabel, stockGraph, priceChangeLabel)
+        addConstraintsWithFormat(format: "H:|-16-[v0(118)]-16-[v1(127)]-10-[v2(93)]-10-|", views: tickerLabel, stockGraph, priceLabel)
+        addConstraintsWithFormat(format: "H:|-16-[v0(115)]-19-[v1(127)]-34-[v2(45)]-34-|", views: corpLabel, stockGraph, priceChangeLabel)
 
         // Vertical Constraints
-        addConstrintsWithFormat(format: "V:|-19-[v0(29)]-11-[v1(21)]-20-|", views: tickerLabel, corpLabel)
-        addConstrintsWithFormat(format: "V:|-14-[v0(69)]-17-|", views: stockGraph)
-        addConstrintsWithFormat(format: "V:|-31-[v0(17)]-5-[v1(16)]-31-|", views: priceLabel, priceChangeLabel)
+        addConstraintsWithFormat(format: "V:|-19-[v0(29)]-11-[v1(21)]-20-|", views: tickerLabel, corpLabel)
+        addConstraintsWithFormat(format: "V:|-14-[v0(69)]-17-|", views: stockGraph)
+        addConstraintsWithFormat(format: "V:|-31-[v0(17)]-5-[v1(16)]-31-|", views: priceLabel, priceChangeLabel)
     }
 }

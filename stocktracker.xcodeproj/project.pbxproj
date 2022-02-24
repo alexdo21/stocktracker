@@ -25,7 +25,28 @@
 		D6A2454B26BC633F00012125 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454A26BC633F00012125 /* SearchController.swift */; };
 		D6A2454E26C3541700012125 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454D26C3541700012125 /* Extensions.swift */; };
 		D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */; };
+		D6F7AD6527BB71CF0057D50F /* StockChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7AD6427BB71CF0057D50F /* StockChartController.swift */; };
+		D6F7AD8027BF771D0057D50F /* stocktrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7AD7F27BF771D0057D50F /* stocktrackerTests.swift */; };
+		D6F7AD8D27BF77CB0057D50F /* stocktrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7AD8C27BF77CB0057D50F /* stocktrackerUITests.swift */; };
+		D6F7AD8F27BF77CB0057D50F /* stocktrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F7AD8E27BF77CB0057D50F /* stocktrackerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6F7AD8127BF771D0057D50F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6A2451926B8416E00012125 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6A2452026B8416E00012125;
+			remoteInfo = stocktracker;
+		};
+		D6F7AD9027BF77CB0057D50F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6A2451926B8416E00012125 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D6A2452026B8416E00012125;
+			remoteInfo = stocktracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		344E63571CCD43791060E55F /* Pods_stocktracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stocktracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +70,12 @@
 		D6A2454A26BC633F00012125 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D6A2454D26C3541700012125 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		D6F7AD6427BB71CF0057D50F /* StockChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartController.swift; sourceTree = "<group>"; };
+		D6F7AD7D27BF771D0057D50F /* stocktrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stocktrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6F7AD7F27BF771D0057D50F /* stocktrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocktrackerTests.swift; sourceTree = "<group>"; };
+		D6F7AD8A27BF77CB0057D50F /* stocktrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stocktrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6F7AD8C27BF77CB0057D50F /* stocktrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocktrackerUITests.swift; sourceTree = "<group>"; };
+		D6F7AD8E27BF77CB0057D50F /* stocktrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stocktrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E5010A7886EA2CC30C300376 /* Pods-stocktracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.release.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +85,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9DACD6AD3033871D0C69872 /* Pods_stocktracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F7AD7A27BF771D0057D50F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F7AD8727BF77CB0057D50F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				D6A2452326B8416E00012125 /* stocktracker */,
+				D6F7AD7E27BF771D0057D50F /* stocktrackerTests */,
+				D6F7AD8B27BF77CB0057D50F /* stocktrackerUITests */,
 				D6A2452226B8416E00012125 /* Products */,
 				18CDCD44CCC19BE74273FA8D /* Pods */,
 				8FD0E8908100DFCAE2CD8950 /* Frameworks */,
@@ -95,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				D6A2452126B8416E00012125 /* stocktracker.app */,
+				D6F7AD7D27BF771D0057D50F /* stocktrackerTests.xctest */,
+				D6F7AD8A27BF77CB0057D50F /* stocktrackerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +188,7 @@
 				D6A2454626BB6D0900012125 /* TabBarController.swift */,
 				D6A2454A26BC633F00012125 /* SearchController.swift */,
 				D65DC74127B78F990071302E /* WatchlistController.swift */,
+				D6F7AD6427BB71CF0057D50F /* StockChartController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +218,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		D6F7AD7E27BF771D0057D50F /* stocktrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D6F7AD7F27BF771D0057D50F /* stocktrackerTests.swift */,
+			);
+			path = stocktrackerTests;
+			sourceTree = "<group>";
+		};
+		D6F7AD8B27BF77CB0057D50F /* stocktrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D6F7AD8C27BF77CB0057D50F /* stocktrackerUITests.swift */,
+				D6F7AD8E27BF77CB0057D50F /* stocktrackerUITestsLaunchTests.swift */,
+			);
+			path = stocktrackerUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,17 +257,61 @@
 			productReference = D6A2452126B8416E00012125 /* stocktracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D6F7AD7C27BF771D0057D50F /* stocktrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6F7AD8327BF771D0057D50F /* Build configuration list for PBXNativeTarget "stocktrackerTests" */;
+			buildPhases = (
+				D6F7AD7927BF771D0057D50F /* Sources */,
+				D6F7AD7A27BF771D0057D50F /* Frameworks */,
+				D6F7AD7B27BF771D0057D50F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6F7AD8227BF771D0057D50F /* PBXTargetDependency */,
+			);
+			name = stocktrackerTests;
+			productName = stocktrackerTests;
+			productReference = D6F7AD7D27BF771D0057D50F /* stocktrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D6F7AD8927BF77CB0057D50F /* stocktrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6F7AD9227BF77CB0057D50F /* Build configuration list for PBXNativeTarget "stocktrackerUITests" */;
+			buildPhases = (
+				D6F7AD8627BF77CB0057D50F /* Sources */,
+				D6F7AD8727BF77CB0057D50F /* Frameworks */,
+				D6F7AD8827BF77CB0057D50F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6F7AD9127BF77CB0057D50F /* PBXTargetDependency */,
+			);
+			name = stocktrackerUITests;
+			productName = stocktrackerUITests;
+			productReference = D6F7AD8A27BF77CB0057D50F /* stocktrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D6A2451926B8416E00012125 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					D6A2452026B8416E00012125 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					D6F7AD7C27BF771D0057D50F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D6A2452026B8416E00012125;
+					};
+					D6F7AD8927BF77CB0057D50F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D6A2452026B8416E00012125;
 					};
 				};
 			};
@@ -222,6 +329,8 @@
 			projectRoot = "";
 			targets = (
 				D6A2452026B8416E00012125 /* stocktracker */,
+				D6F7AD7C27BF771D0057D50F /* stocktrackerTests */,
+				D6F7AD8927BF77CB0057D50F /* stocktrackerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +343,20 @@
 				D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */,
 				D6A2452E26B8417100012125 /* Assets.xcassets in Resources */,
 				D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F7AD7B27BF771D0057D50F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F7AD8827BF77CB0057D50F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */,
+				D6F7AD6527BB71CF0057D50F /* StockChartController.swift in Sources */,
 				D6A2454B26BC633F00012125 /* SearchController.swift in Sources */,
 				D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */,
 				D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */,
@@ -303,7 +427,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D6F7AD7927BF771D0057D50F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6F7AD8027BF771D0057D50F /* stocktrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6F7AD8627BF77CB0057D50F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6F7AD8F27BF77CB0057D50F /* stocktrackerUITestsLaunchTests.swift in Sources */,
+				D6F7AD8D27BF77CB0057D50F /* stocktrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6F7AD8227BF771D0057D50F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6A2452026B8416E00012125 /* stocktracker */;
+			targetProxy = D6F7AD8127BF771D0057D50F /* PBXContainerItemProxy */;
+		};
+		D6F7AD9127BF77CB0057D50F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D6A2452026B8416E00012125 /* stocktracker */;
+			targetProxy = D6F7AD9027BF77CB0057D50F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D6A2452F26B8417100012125 /* LaunchScreen.storyboard */ = {
@@ -473,6 +627,84 @@
 			};
 			name = Release;
 		};
+		D6F7AD8427BF771D0057D50F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8GXFSFGRRK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexDo.stocktrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stocktracker.app/stocktracker";
+			};
+			name = Debug;
+		};
+		D6F7AD8527BF771D0057D50F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8GXFSFGRRK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexDo.stocktrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/stocktracker.app/stocktracker";
+			};
+			name = Release;
+		};
+		D6F7AD9327BF77CB0057D50F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8GXFSFGRRK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexDo.stocktrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = stocktracker;
+			};
+			name = Debug;
+		};
+		D6F7AD9427BF77CB0057D50F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8GXFSFGRRK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AlexDo.stocktrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = stocktracker;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -490,6 +722,24 @@
 			buildConfigurations = (
 				D6A2453626B8417100012125 /* Debug */,
 				D6A2453726B8417100012125 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6F7AD8327BF771D0057D50F /* Build configuration list for PBXNativeTarget "stocktrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6F7AD8427BF771D0057D50F /* Debug */,
+				D6F7AD8527BF771D0057D50F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6F7AD9227BF77CB0057D50F /* Build configuration list for PBXNativeTarget "stocktrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6F7AD9327BF77CB0057D50F /* Debug */,
+				D6F7AD9427BF77CB0057D50F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
