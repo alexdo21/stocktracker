@@ -22,42 +22,21 @@ class StockChartController : UIViewController {
     let segmentedControl: UISegmentedControl = {
         let items = ["1D", "1W", "1M", "1Y"]
         let sc = UISegmentedControl(items: items)
+        sc.selectedSegmentIndex = 0
         sc.backgroundColor = .systemYellow
         return sc
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .systemGray6
+        
         view.addSubview(dashboardView)
         view.addSubview(chartView)
         view.addSubview(segmentedControl)
         
-        setupViews()
-    }
-    
-//    override func viewDidLayoutSubviews() {
-//        setupViews()
-//    }
-    
-    func setupViews() {
-        
-        
-        
-        // horizontal constraints
-        view.addConstraintsWithFormat(format: "H:|-23-[v0(344)]-23-|", views: dashboardView)
-        view.addConstraintsWithFormat(format: "H:|-23-[v0(344)]-23-|", views: chartView)
-        view.addConstraintsWithFormat(format: "H:|-23-[v0(344)]-23-|", views: segmentedControl)
-        
-        // vertical constraints
-        view.addConstraintsWithFormat(format: "V:|-15-[v0(96)]-9-[v1(300)]-14-[v2(32)]-207-|", views: dashboardView, chartView, segmentedControl)
-        
-    }
-}
-
-extension UIView {
-    func centerInSuperview() {
-        center.x = superview!.bounds.width / 2
-        center.y = superview!.bounds.width / 2
+        dashboardView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 15, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 96))
+        chartView.anchor(top: dashboardView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 300))
+        segmentedControl.anchor(top: chartView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 15, right: 23), size: .init(width: 344, height: 32))
     }
 }
