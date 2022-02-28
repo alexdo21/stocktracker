@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B9DACD6AD3033871D0C69872 /* Pods_stocktracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344E63571CCD43791060E55F /* Pods_stocktracker.framework */; };
+		D63AD8C127C9EC82006B09AB /* TimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C027C9EC82006B09AB /* TimeSeries.swift */; };
+		D63AD8C427CAE5DD006B09AB /* ChartsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C327CAE5DD006B09AB /* ChartsHelper.swift */; };
 		D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */; };
 		D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73D27B607430071302E /* StockSearchResultCell.swift */; };
 		D65DC74027B7875D0071302E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73F27B7875D0071302E /* FirebaseService.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		344E63571CCD43791060E55F /* Pods_stocktracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stocktracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D708441CB5811426CB823D0 /* Pods-stocktracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stocktracker.debug.xcconfig"; path = "Target Support Files/Pods-stocktracker/Pods-stocktracker.debug.xcconfig"; sourceTree = "<group>"; };
+		D63AD8C027C9EC82006B09AB /* TimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeries.swift; sourceTree = "<group>"; };
+		D63AD8C327CAE5DD006B09AB /* ChartsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsHelper.swift; sourceTree = "<group>"; };
 		D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D65DC73D27B607430071302E /* StockSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResultCell.swift; sourceTree = "<group>"; };
 		D65DC73F27B7875D0071302E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A2454126B9C80700012125 /* Stock.swift */,
+				D63AD8C027C9EC82006B09AB /* TimeSeries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D6A2454D26C3541700012125 /* Extensions.swift */,
+				D63AD8C327CAE5DD006B09AB /* ChartsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -414,6 +420,8 @@
 				D6A2454B26BC633F00012125 /* SearchController.swift in Sources */,
 				D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */,
 				D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */,
+				D63AD8C127C9EC82006B09AB /* TimeSeries.swift in Sources */,
+				D63AD8C427CAE5DD006B09AB /* ChartsHelper.swift in Sources */,
 				D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */,
 				D65DC74227B78F990071302E /* WatchlistController.swift in Sources */,
 				D6A2452926B8416E00012125 /* HomeController.swift in Sources */,

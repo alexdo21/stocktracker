@@ -71,7 +71,13 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(StockChartController(), animated: true)
+        if let stockChartController = stocks[indexPath.row].stockChart {
+            navigationController?.pushViewController(stockChartController, animated: true)
+        } else {
+            let stockChartController = StockChartController(with: stocks[indexPath.row])
+            watchlistController?.stocks[indexPath.row].stockChart = stockChartController
+            navigationController?.pushViewController(stockChartController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

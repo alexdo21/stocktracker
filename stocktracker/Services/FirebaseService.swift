@@ -19,7 +19,6 @@ class FirebaseService: NSObject {
                 let stock = snapshot.value as! [String:Any]
                 let symbol = stock["symbol"] as! String
                 let name = stock["name"] as! String
-                print("\(snapshot.key) added")
                 completion(stockId, symbol, name)
             }
         })
@@ -28,7 +27,6 @@ class FirebaseService: NSObject {
     func listenForUserWatchlistDelete(completion: @escaping (String) -> ()) {
         database.child("testlist").observe(.childRemoved, with: { snapshot in
             if snapshot.exists() {
-                print("\(snapshot.key) deleted")
                 completion(snapshot.key)
             }
         })

@@ -12,8 +12,7 @@ class WatchlistController {
     
     func listenForUpdates(completion: @escaping () -> Void) {
         FirebaseService.sharedInstance.listenForUserWatchlistAdd { (stockId, symbol, name) in
-            AlphaVantageService.sharedInstance.fetchQuoteFor(stockId, symbol, name) { (stock: StockQuote) in
-                print("AlphaVantage: \(stock)")
+            AlphaVantageService.sharedInstance.fetchStockQuoteInWatchlistFor(stockId, symbol, name) { (stock: StockQuote) in
                 self.stocks.append(stock)
                 completion()
             }

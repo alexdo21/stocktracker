@@ -87,6 +87,11 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let stockMatch = stockMatches?[indexPath.row] {
+            AlphaVantageService.sharedInstance.fetchStockQuote(for: stockMatch) { (stock) in
+                self.navigationController?.pushViewController(StockChartController(with: stock), animated: true)
+            }
+        }
     }
     
 }

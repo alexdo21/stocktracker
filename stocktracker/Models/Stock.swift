@@ -10,6 +10,7 @@ import UIKit
 struct StockQuote: Codable {
     var id: String?
     var name: String?
+    var stockChart: StockChartController?
     
     struct GlobalQuote: Codable {
         let symbol, open, high, low, price, volume, latestTradingDay, previousClose, change, changePercent: String
