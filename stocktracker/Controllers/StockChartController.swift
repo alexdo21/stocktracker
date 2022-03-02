@@ -8,28 +8,15 @@
 import UIKit
 import Charts
 
-class StockChartController : UIViewController {
-    var stock: StockQuote {
-        didSet {
-        }
-    }
-    
-    var hourly: [String: TimeSeriesSnapshot]?
-    var daily: [String: TimeSeriesSnapshot]?
-    var weekly: [String: TimeSeriesSnapshot]?
-    var monthly: [String: TimeSeriesSnapshot]?
+class StockChartController: UIViewController {
+    var stock: StockQuote
 
     var chartDataList = [LineChartData?](repeating: nil, count: 4)
     var timeSeriesList = [[String:TimeSeriesSnapshot]?](repeating: nil, count: 4)
-    
-    let dashboardView: UIView = {
-        let dv = UIView()
-        dv.backgroundColor = .systemYellow
-        return dv
-    }()
+
     lazy var chartView: LineChartView = {
         let cv = LineChartView()
-        cv.backgroundColor = .systemGray5
+        cv.backgroundColor = .systemGray6
         
         let xAxis = cv.xAxis
         xAxis.labelPosition = .bottom
@@ -52,28 +39,26 @@ class StockChartController : UIViewController {
         cv.extraBottomOffset = 10
         cv.xAxis.drawGridLinesEnabled = false
         cv.leftAxis.drawGridLinesEnabled = false
-        
-        cv.animate(xAxisDuration: 3.5)
-        
+                
         return cv
     }()
     lazy var segmentedControl: UISegmentedControl = {
         let items = ["1H", "1D", "1W", "1M"]
         let sc = UISegmentedControl(items: items)
-        sc.selectedSegmentIndex = 1
-        sc.backgroundColor = .systemYellow
+        sc.selectedSegmentIndex = 0
+        sc.backgroundColor = .white
         sc.addTarget(self, action: #selector(handleSelect), for: .valueChanged)
         return sc
     }()
     
     @objc private func handleSelect(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 && hourly == nil {
+        if sender.selectedSegmentIndex == 0 && timeSeriesList[0] == nil {
             fetchTimeSeries(of: .hourly) { self.chartView.data = self.chartDataList[0] }
-        } else if sender.selectedSegmentIndex == 1 && daily == nil {
+        } else if sender.selectedSegmentIndex == 1 && timeSeriesList[1] == nil {
             fetchTimeSeries(of: .daily) { self.chartView.data = self.chartDataList[1] }
-        } else if sender.selectedSegmentIndex == 2 && weekly == nil {
+        } else if sender.selectedSegmentIndex == 2 && timeSeriesList[2] == nil {
             fetchTimeSeries(of: .weekly) { self.chartView.data = self.chartDataList[2] }
-        } else if sender.selectedSegmentIndex == 3 && monthly == nil {
+        } else if sender.selectedSegmentIndex == 3 && timeSeriesList[3] == nil {
             fetchTimeSeries(of: .monthly) { self.chartView.data = self.chartDataList[3] }
         }
         chartView.xAxis.valueFormatter = DateValueFormatter(dateFormat: getDateFormatDisplay(of: TimeSeriesType(rawValue: sender.selectedSegmentIndex)!))
@@ -87,14 +72,7 @@ class StockChartController : UIViewController {
             if !timeSeries.isEmpty {
                 self.timeSeriesList[timeSeriesType.rawValue] = timeSeries
                 let chartDataSet = getChartDataSet(of: timeSeriesType, for: timeSeries)
-                let colors = chartDataSet.entries.map { (entry) -> UIColor in
-                    return entry.y >= self.chartView.leftAxis.limitLines[0].limit ? .systemGreen : .systemRed
-                }
-                chartDataSet.drawCirclesEnabled = false
-                chartDataSet.lineWidth = 3
-                chartDataSet.valueColors = colors
-                chartDataSet.mode = .cubicBezier
-                
+                customizeDataSet(chartDataSet, Float(self.stock.globalQuote.change)!)
                 let chartData = LineChartData(dataSet: chartDataSet)
                 chartData.setDrawValues(false)
                 self.chartDataList[timeSeriesType.rawValue] = chartData
@@ -112,21 +90,53 @@ class StockChartController : UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func addTapped() {
+        print("Favorite Pressed!")
+        if stock.isFavorited {
+            FirebaseService.sharedInstance.deleteStockFromWatchlist(stockId: stock.id!) {
+                self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star")
+            }
+        } else {
+            FirebaseService.sharedInstance.addStockToWatchlist(symbol: stock.globalQuote.symbol, name: stock.name!) { _ in
+                self.navigationItem.rightBarButtonItem?.image = UIImage(systemName: "star.fill")
+            }
+        }
+        stock.isFavorited = !stock.isFavorited
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = stock.globalQuote.symbol
+        let rightBarButtonImage = stock.isFavorited ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightBarButtonImage, style: .plain, target: self, action: #selector(addTapped))
         view.backgroundColor = .systemGray6
         
+        let dashboardView = DashboardView()
+        dashboardView.stock = stock
         view.addSubview(dashboardView)
         view.addSubview(chartView)
         view.addSubview(segmentedControl)
-        
-        fetchTimeSeries(of: .daily) {
-            self.chartView.data = self.chartDataList[1]
-        }
-        
+
         dashboardView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 15, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 96))
         chartView.anchor(top: dashboardView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 300))
         segmentedControl.anchor(top: chartView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 15, right: 23), size: .init(width: 344, height: 32))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let hourlyChartData = chartDataList[0] {
+            self.chartView.data = hourlyChartData
+        } else {
+            fetchTimeSeries(of: .hourly) {
+                self.chartView.data = self.chartDataList[0]
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let root = navigationController?.viewControllers[0] {
+            if root is SearchController {
+                navigationController?.popToRootViewController(animated: false)
+            }
+        }
     }
 }

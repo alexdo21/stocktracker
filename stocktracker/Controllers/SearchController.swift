@@ -26,6 +26,16 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
         return tv
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+//        for cell in tableView.visibleCells {
+//            let resultCell = cell as! StockSearchResultCell
+//            if var stockMatch = resultCell.stockMatch, let _ = stocks.first(where: {$0.globalQuote.symbol == stockMatch.symbol}) {
+//                stockMatch.isFavorited = true
+//            }
+//        }
+        self.tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +98,16 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let stockMatch = stockMatches?[indexPath.row] {
-            AlphaVantageService.sharedInstance.fetchStockQuote(for: stockMatch) { (stock) in
-                self.navigationController?.pushViewController(StockChartController(with: stock), animated: true)
+            if let existingStock = stocks.first(where: {$0.globalQuote.symbol == stockMatch.symbol}) {
+                if let stockChart = existingStock.stockChart {
+                    self.navigationController?.pushViewController(stockChart, animated: true)
+                } else {
+                    self.navigationController?.pushViewController(StockChartController(with: existingStock), animated: true)
+                }
+            } else {
+                AlphaVantageService.sharedInstance.fetchStockQuote(for: stockMatch) { (stock) in
+                    self.navigationController?.pushViewController(StockChartController(with: stock), animated: true)
+                }
             }
         }
     }

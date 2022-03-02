@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -71,12 +72,16 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let stockChartController = stocks[indexPath.row].stockChart {
-            navigationController?.pushViewController(stockChartController, animated: true)
-        } else {
-            let stockChartController = StockChartController(with: stocks[indexPath.row])
-            watchlistController?.stocks[indexPath.row].stockChart = stockChartController
-            navigationController?.pushViewController(stockChartController, animated: true)
+        let stock = stocks[indexPath.row]
+        if let hourlyChartData = stock.hourlyChartData {
+            if let stockChartController = stock.stockChart {
+                navigationController?.pushViewController(stockChartController, animated: true)
+            } else {
+                let stockChartController = StockChartController(with: stock)
+                stockChartController.chartDataList[0] = hourlyChartData
+                watchlistController?.stocks[indexPath.row].stockChart = stockChartController
+                navigationController?.pushViewController(stockChartController, animated: true)
+            }
         }
     }
     

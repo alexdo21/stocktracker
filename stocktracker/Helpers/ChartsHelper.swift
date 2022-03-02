@@ -11,7 +11,7 @@ class DateValueFormatter: NSObject, IAxisValueFormatter {
     let dateFormatter = DateFormatter()
     override init() {
         super.init()
-        dateFormatter.dateFormat = getDateFormatDisplay(of: .daily)
+        dateFormatter.dateFormat = getDateFormatDisplay(of: .hourly)
     }
     init(dateFormat: String) {
         dateFormatter.dateFormat = dateFormat
@@ -38,6 +38,19 @@ func getChartDataSet(of timeSeriesType: TimeSeriesType, for timeSeries: [String:
         return nil
     }
     return LineChartDataSet(entries: values, label: "DateSet \(timeSeriesType)")
+}
+
+func customizeDataSet(_ chartDataSet: LineChartDataSet, _ priceChange: Float) {
+    chartDataSet.drawCirclesEnabled = false
+    chartDataSet.lineWidth = 3
+    let dataSetColor: UIColor = priceChange >= 0 ? .systemGreen : .systemRed
+    chartDataSet.setColor(dataSetColor)
+    chartDataSet.fill = Fill(color: dataSetColor)
+    chartDataSet.fillAlpha = 0.1
+    chartDataSet.drawFilledEnabled = true
+    chartDataSet.drawHorizontalHighlightIndicatorEnabled = false
+    chartDataSet.highlightColor = .lightGray
+    chartDataSet.mode = .cubicBezier
 }
 
 private func getDefaultLastDates(of timeSeriesType: TimeSeriesType) -> Int {
@@ -69,7 +82,7 @@ private func getDateFormat(of timeSeriesType: TimeSeriesType) -> String {
 func getDateFormatDisplay(of timeSeriesType: TimeSeriesType) -> String {
     switch timeSeriesType {
     case .hourly:
-        return "h:mm a"
+        return "h:mm"
     case .daily:
         return "MMM dd"
     case .weekly:

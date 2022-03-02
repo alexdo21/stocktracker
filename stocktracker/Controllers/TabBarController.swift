@@ -8,7 +8,7 @@
 import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +24,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         
         let watchlistVC = WatchlistController()
-        
         let homeController = HomeController()
         homeController.watchlistController = watchlistVC
         let homeNVC = UINavigationController(rootViewController: homeController)

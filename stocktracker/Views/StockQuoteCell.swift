@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class StockQuoteCell: CustomTableViewCell {
     static let identifier = "StockQuoteCell"
@@ -22,7 +23,16 @@ class StockQuoteCell: CustomTableViewCell {
                 priceChangeLabel.backgroundColor = priceChangeFloat < 0 ? .red : .green
                 priceChangeLabel.text = "\(roundedPriceChange)"
             }
-
+            
+            if let hourlyChartData = stock?.hourlyChartData, let previousCloseLine = Double((stock?.globalQuote.previousClose)!) {
+                let previousCloseLine = ChartLimitLine(limit: previousCloseLine)
+                previousCloseLine.lineWidth = 1
+                previousCloseLine.lineDashLengths = [5, 5]
+                previousCloseLine.lineColor = UIColor.lightGray
+                self.stockGraph.leftAxis.addLimitLine(previousCloseLine)
+                self.stockGraph.data = hourlyChartData
+            }
+            
         }
     }
     
@@ -40,9 +50,25 @@ class StockQuoteCell: CustomTableViewCell {
         return label
     }()
 
-    let stockGraph: UIView = {
-        let graph = UIView()
-        graph.backgroundColor = .systemGreen
+    lazy var stockGraph: LineChartView = {
+        let graph = LineChartView()
+        graph.backgroundColor = .white
+        graph.chartDescription?.enabled = false
+        
+        graph.xAxis.drawGridLinesEnabled = false
+        graph.leftAxis.drawGridLinesEnabled = false
+        
+        graph.xAxis.drawLabelsEnabled = false
+        graph.leftAxis.drawLabelsEnabled = false
+        
+        graph.xAxis.drawAxisLineEnabled = false
+        graph.leftAxis.drawAxisLineEnabled = false
+        
+        graph.rightAxis.enabled = false
+        graph.legend.enabled = false
+        graph.drawBordersEnabled = false
+        
+        graph.isUserInteractionEnabled = false
         return graph
     }()
     

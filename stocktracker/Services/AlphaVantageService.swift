@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class AlphaVantageService: NSObject {
     static let sharedInstance = AlphaVantageService()
@@ -48,7 +49,18 @@ class AlphaVantageService: NSObject {
             DispatchQueue.main.async {
                 stock.id = stockId
                 stock.name = name
-                completion(stock)
+                stock.isFavorited = true
+                self.fetchTimeSeries(of: .hourly, for: stock.globalQuote.symbol) { (timeSeries) in
+                    if !timeSeries.isEmpty {
+                        let hourlyChartDataSet = getChartDataSet(of: .hourly, for: timeSeries)
+                        customizeDataSet(hourlyChartDataSet, Float(stock.globalQuote.change)!)
+                        hourlyChartDataSet.drawVerticalHighlightIndicatorEnabled = false
+                        let hourlyChartData = LineChartData(dataSet: hourlyChartDataSet)
+                        hourlyChartData.setDrawValues(false)
+                        stock.hourlyChartData = hourlyChartData
+                        completion(stock)
+                    }
+                }
             }
         }
         task.resume()
@@ -89,6 +101,17 @@ class AlphaVantageService: NSObject {
                     DispatchQueue.main.async {
                         stock.id = stockId
                         stock.name = name
+                        stock.isFavorited = true
+                        self.fetchTimeSeries(of: .hourly, for: stock.globalQuote.symbol) { (timeSeries) in
+                            if !timeSeries.isEmpty {
+                                let hourlyChartDataSet = getChartDataSet(of: .hourly, for: timeSeries)
+                                customizeDataSet(hourlyChartDataSet, Float(stock.globalQuote.change)!)
+                                hourlyChartDataSet.drawVerticalHighlightIndicatorEnabled = false
+                                let hourlyChartData = LineChartData(dataSet: hourlyChartDataSet)
+                                hourlyChartData.setDrawValues(false)
+                                stock.hourlyChartData = hourlyChartData
+                            }
+                        }
                         stocks.append(stock)
                         dispatchGroup.leave()
                     }
