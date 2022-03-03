@@ -11,6 +11,9 @@
 		D63AD8C127C9EC82006B09AB /* TimeSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C027C9EC82006B09AB /* TimeSeries.swift */; };
 		D63AD8C427CAE5DD006B09AB /* ChartsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C327CAE5DD006B09AB /* ChartsHelper.swift */; };
 		D63AD8C627CDED09006B09AB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C527CDED09006B09AB /* DashboardView.swift */; };
+		D63AD8C827D045E5006B09AB /* StockInfoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C727D045E5006B09AB /* StockInfoContainerView.swift */; };
+		D63AD8CA27D0497D006B09AB /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8C927D0497D006B09AB /* InfoCell.swift */; };
+		D63AD8CE27D053A5006B09AB /* StockPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AD8CD27D053A5006B09AB /* StockPriceView.swift */; };
 		D640F32B27A11A3900E29C64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */; };
 		D65DC73E27B607430071302E /* StockSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73D27B607430071302E /* StockSearchResultCell.swift */; };
 		D65DC74027B7875D0071302E /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65DC73F27B7875D0071302E /* FirebaseService.swift */; };
@@ -57,6 +60,9 @@
 		D63AD8C027C9EC82006B09AB /* TimeSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeries.swift; sourceTree = "<group>"; };
 		D63AD8C327CAE5DD006B09AB /* ChartsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsHelper.swift; sourceTree = "<group>"; };
 		D63AD8C527CDED09006B09AB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		D63AD8C727D045E5006B09AB /* StockInfoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockInfoContainerView.swift; sourceTree = "<group>"; };
+		D63AD8C927D0497D006B09AB /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		D63AD8CD27D053A5006B09AB /* StockPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPriceView.swift; sourceTree = "<group>"; };
 		D640F32A27A11A3900E29C64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D65DC73D27B607430071302E /* StockSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSearchResultCell.swift; sourceTree = "<group>"; };
 		D65DC73F27B7875D0071302E /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -184,6 +190,9 @@
 				D63AD8C527CDED09006B09AB /* DashboardView.swift */,
 				D6A2453E26B9C78100012125 /* StockQuoteCell.swift */,
 				D65DC73D27B607430071302E /* StockSearchResultCell.swift */,
+				D63AD8C727D045E5006B09AB /* StockInfoContainerView.swift */,
+				D63AD8C927D0497D006B09AB /* InfoCell.swift */,
+				D63AD8CD27D053A5006B09AB /* StockPriceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */,
+				D63AD8CE27D053A5006B09AB /* StockPriceView.swift in Sources */,
 				D6F7AD6527BB71CF0057D50F /* StockChartController.swift in Sources */,
 				D6A2454B26BC633F00012125 /* SearchController.swift in Sources */,
 				D6C622AF27AC559600A4F11F /* CustomTableViewCell.swift in Sources */,
@@ -427,11 +437,13 @@
 				D63AD8C127C9EC82006B09AB /* TimeSeries.swift in Sources */,
 				D63AD8C427CAE5DD006B09AB /* ChartsHelper.swift in Sources */,
 				D6A2454726BB6D0900012125 /* TabBarController.swift in Sources */,
+				D63AD8CA27D0497D006B09AB /* InfoCell.swift in Sources */,
 				D65DC74227B78F990071302E /* WatchlistController.swift in Sources */,
 				D6A2452926B8416E00012125 /* HomeController.swift in Sources */,
 				D6A2454226B9C80700012125 /* Stock.swift in Sources */,
 				D65DC74027B7875D0071302E /* FirebaseService.swift in Sources */,
 				D6A2454E26C3541700012125 /* Extensions.swift in Sources */,
+				D63AD8C827D045E5006B09AB /* StockInfoContainerView.swift in Sources */,
 				D6A2454526B9C8AA00012125 /* AlphaVantageService.swift in Sources */,
 				D6A2452526B8416E00012125 /* AppDelegate.swift in Sources */,
 				D6A2452726B8416E00012125 /* SceneDelegate.swift in Sources */,

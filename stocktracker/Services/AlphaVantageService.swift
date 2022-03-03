@@ -12,6 +12,7 @@ class AlphaVantageService: NSObject {
     static let sharedInstance = AlphaVantageService()
     
     let BASE_URL = "https://www.alphavantage.co/query?function="
+    let API_KEYS = ["LX6YZLO8UJWSQ3NO","J9C1UDU14O5HUX85", "Y7N7WB7QWXH5FV3Q"]
     let API_KEY = "LX6YZLO8UJWSQ3NO"
     let SEARCH_ENDPOINT = "SYMBOL_SEARCH"
     let QUOTE_ENDPOINT = "GLOBAL_QUOTE"
@@ -24,7 +25,7 @@ class AlphaVantageService: NSObject {
         if keyword.isEmpty {
             completion([])
         }
-        guard let url = URL(string: BASE_URL + "\(SEARCH_ENDPOINT)&keywords=\(keyword)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(SEARCH_ENDPOINT)&keywords=\(keyword)&apikey=\(API_KEYS.randomElement()!)") else { return }
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -40,7 +41,7 @@ class AlphaVantageService: NSObject {
     }
     
     func fetchStockQuoteInWatchlistFor(_ stockId: String, _ symbol: String, _ name: String, completion: @escaping (StockQuote) -> ()) {
-        guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -69,7 +70,7 @@ class AlphaVantageService: NSObject {
     func fetchStockQuote(for stockMatch: StockSearchResults.Match, completion: @escaping (StockQuote) -> ()) {
         let symbol = stockMatch.symbol
         let name = stockMatch.name
-        guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -89,7 +90,7 @@ class AlphaVantageService: NSObject {
         for (stockId, stockData) in userWatchlist {
             if let symbol = stockData["symbol"], let name = stockData["name"] {
                 dispatchGroup.enter()
-                guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+                guard let url = URL(string: BASE_URL + "\(QUOTE_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
                 URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                     if error != nil {
                         print(error ?? "")
@@ -146,7 +147,7 @@ class AlphaVantageService: NSObject {
     }
     
     private func fetchHourlyTimeSeries(for symbol: String, completion: @escaping ([String:TimeSeriesSnapshot]) -> ()) {
-        guard let url = URL(string: BASE_URL + "\(INTRADAY_ENDPOINT)&symbol=\(symbol)&interval=60min&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(INTRADAY_ENDPOINT)&symbol=\(symbol)&interval=60min&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -160,7 +161,7 @@ class AlphaVantageService: NSObject {
     }
     
     private func fetchDailyTimeSeries(for symbol: String, completion: @escaping ([String:TimeSeriesSnapshot]) -> ()) {
-        guard let url = URL(string: BASE_URL + "\(DAILY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(DAILY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -174,7 +175,7 @@ class AlphaVantageService: NSObject {
     }
     
     private func fetchWeeklyTimeSeries(for symbol: String, completion: @escaping ([String:TimeSeriesSnapshot]) -> ()) {
-        guard let url = URL(string: BASE_URL + "\(WEEKLY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(WEEKLY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")
@@ -188,7 +189,7 @@ class AlphaVantageService: NSObject {
     }
     
     private func fetchMonthlyTimeSeries(for symbol: String, completion: @escaping ([String:TimeSeriesSnapshot]) -> ()) {
-        guard let url = URL(string: BASE_URL + "\(MONTHLY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEY)") else { return }
+        guard let url = URL(string: BASE_URL + "\(MONTHLY_ENDPOINT)&symbol=\(symbol)&apikey=\(API_KEYS.randomElement()!)") else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error ?? "")

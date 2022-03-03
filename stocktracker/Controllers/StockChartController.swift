@@ -16,7 +16,8 @@ class StockChartController: UIViewController {
 
     lazy var chartView: LineChartView = {
         let cv = LineChartView()
-        cv.backgroundColor = .systemGray6
+        cv.backgroundColor = .clear
+        cv.layer.cornerRadius = 100
         
         let xAxis = cv.xAxis
         xAxis.labelPosition = .bottom
@@ -111,15 +112,20 @@ class StockChartController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: rightBarButtonImage, style: .plain, target: self, action: #selector(addTapped))
         view.backgroundColor = .systemGray6
         
+        let chartViewContainer = UIView()
+        chartViewContainer.backgroundColor = .white
+        chartViewContainer.layer.cornerRadius = 10
+        chartViewContainer.addSubview(chartView)
+        chartView.anchor(top: chartViewContainer.topAnchor, left: chartViewContainer.leftAnchor, bottom: chartViewContainer.bottomAnchor, right: chartViewContainer.rightAnchor)
         let dashboardView = DashboardView()
         dashboardView.stock = stock
         view.addSubview(dashboardView)
-        view.addSubview(chartView)
+        view.addSubview(chartViewContainer)
         view.addSubview(segmentedControl)
 
         dashboardView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 15, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 96))
-        chartView.anchor(top: dashboardView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 300))
-        segmentedControl.anchor(top: chartView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 15, right: 23), size: .init(width: 344, height: 32))
+        chartViewContainer.anchor(top: dashboardView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 0, right: 23), size: .init(width: 344, height: 300))
+        segmentedControl.anchor(top: chartViewContainer.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, padding: .init(top: 14, left: 23, bottom: 15, right: 23), size: .init(width: 344, height: 32))
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -50,8 +50,65 @@ extension UIView {
 }
 
 extension Float {
+    
     func rounded(toPlaces places: Int) -> Float {
         let divisor = pow(10.0, Float(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
+func formatPoints(num: Double) ->String{
+    var thousandNum = num/1000
+    var millionNum = num/1000000
+    if num >= 1000 && num < 1000000{
+        if(floor(thousandNum) == thousandNum){
+            return("\(Int(thousandNum))k")
+        }
+        return("\(thousandNum.roundToPlaces(places: 1))k")
+    }
+    if num > 1000000{
+        if(floor(millionNum) == millionNum){
+            return("\(Int(thousandNum))k")
+        }
+        return ("\(millionNum.roundToPlaces(places: 1))M")
+    }
+    else{
+        if(floor(num) == num){
+            return ("\(Int(num))")
+        }
+        return ("\(num)")
+    }
+
+}
+
+extension Double {
+    func formatPoints() -> String {
+        let num = self
+        let thousandNum = num / 1000
+        let millionNum = num / 1000000
+        if num >= 1000 && num < 1000000{
+            if(floor(thousandNum) == thousandNum){
+                return("\(Int(thousandNum))K")
+            }
+            return("\(thousandNum.roundToPlaces(places: 1))K")
+        }
+        if num > 1000000{
+            if(floor(millionNum) == millionNum){
+                return("\(Int(thousandNum))k")
+            }
+            return ("\(millionNum.roundToPlaces(places: 1))M")
+        }
+        else{
+            if(floor(num) == num){
+                return ("\(Int(num))")
+            }
+            return ("\(num)")
+        }
+
+    }
+    
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
 }

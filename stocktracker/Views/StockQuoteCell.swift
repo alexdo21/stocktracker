@@ -21,9 +21,8 @@ class StockQuoteCell: CustomTableViewCell {
             if let priceChange = stock?.globalQuote.change, let priceChangeFloat = Float(priceChange) {
                 let roundedPriceChange = String(format: "%.2f", priceChangeFloat)
                 priceChangeLabel.backgroundColor = priceChangeFloat < 0 ? .red : .green
-                priceChangeLabel.text = "\(roundedPriceChange)"
+                priceChangeLabel.text = priceChangeFloat < 0 ? "\(roundedPriceChange)" : "+\(roundedPriceChange)"
             }
-            
             if let hourlyChartData = stock?.hourlyChartData, let previousCloseLine = Double((stock?.globalQuote.previousClose)!) {
                 let previousCloseLine = ChartLimitLine(limit: previousCloseLine)
                 previousCloseLine.lineWidth = 1
@@ -32,7 +31,6 @@ class StockQuoteCell: CustomTableViewCell {
                 self.stockGraph.leftAxis.addLimitLine(previousCloseLine)
                 self.stockGraph.data = hourlyChartData
             }
-            
         }
     }
     

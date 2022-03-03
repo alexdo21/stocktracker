@@ -42,7 +42,7 @@ func getChartDataSet(of timeSeriesType: TimeSeriesType, for timeSeries: [String:
 
 func customizeDataSet(_ chartDataSet: LineChartDataSet, _ priceChange: Float) {
     chartDataSet.drawCirclesEnabled = false
-    chartDataSet.lineWidth = 3
+    chartDataSet.lineWidth = 2
     let dataSetColor: UIColor = priceChange >= 0 ? .systemGreen : .systemRed
     chartDataSet.setColor(dataSetColor)
     chartDataSet.fill = Fill(color: dataSetColor)
@@ -50,17 +50,17 @@ func customizeDataSet(_ chartDataSet: LineChartDataSet, _ priceChange: Float) {
     chartDataSet.drawFilledEnabled = true
     chartDataSet.drawHorizontalHighlightIndicatorEnabled = false
     chartDataSet.highlightColor = .lightGray
-    chartDataSet.mode = .cubicBezier
+    chartDataSet.mode = .horizontalBezier
 }
 
 private func getDefaultLastDates(of timeSeriesType: TimeSeriesType) -> Int {
     switch timeSeriesType {
     case .hourly:
-        return 12
-    case .daily:
-        return 30
-    case .weekly:
         return 24
+    case .daily:
+        return 50
+    case .weekly:
+        return 50
     case .monthly:
         return 50
     }
@@ -86,7 +86,7 @@ func getDateFormatDisplay(of timeSeriesType: TimeSeriesType) -> String {
     case .daily:
         return "MMM dd"
     case .weekly:
-        return "MMM"
+        return "MMM dd"
     case .monthly:
         return "MMM yyyy"
     }
