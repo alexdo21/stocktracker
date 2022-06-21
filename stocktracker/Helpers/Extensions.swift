@@ -58,8 +58,8 @@ extension Float {
 }
 
 func formatPoints(num: Double) ->String{
-    var thousandNum = num/1000
-    var millionNum = num/1000000
+    let thousandNum = num/1000
+    let millionNum = num/1000000
     if num >= 1000 && num < 1000000{
         if(floor(thousandNum) == thousandNum){
             return("\(Int(thousandNum))k")

@@ -36,14 +36,14 @@ class StockQuoteCell: CustomTableViewCell {
     
     let tickerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .center
         return label
     }()
     
     let corpLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         label.textAlignment = .center
         return label
     }()
@@ -72,14 +72,14 @@ class StockQuoteCell: CustomTableViewCell {
     
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         label.textAlignment = .center
         return label
     }()
     
     let priceChangeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         label.textAlignment = .center
         label.layer.cornerRadius = 5
         label.layer.masksToBounds = true

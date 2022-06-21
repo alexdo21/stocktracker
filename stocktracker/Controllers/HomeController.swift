@@ -17,7 +17,7 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let refreshControl: UIRefreshControl = {
         let rc = UIRefreshControl()
-        rc.addTarget(self, action: #selector(refreshWatchlist), for: .valueChanged)
+        rc.addTarget(HomeController.self, action: #selector(refreshWatchlist), for: .valueChanged)
         return rc
     }()
     

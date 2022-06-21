@@ -50,19 +50,18 @@ func customizeDataSet(_ chartDataSet: LineChartDataSet, _ priceChange: Float) {
     chartDataSet.drawFilledEnabled = true
     chartDataSet.drawHorizontalHighlightIndicatorEnabled = false
     chartDataSet.highlightColor = .lightGray
-    chartDataSet.mode = .horizontalBezier
 }
 
 private func getDefaultLastDates(of timeSeriesType: TimeSeriesType) -> Int {
     switch timeSeriesType {
     case .hourly:
-        return 24
+        return 12
     case .daily:
-        return 50
+        return 30
     case .weekly:
-        return 50
+        return 52
     case .monthly:
-        return 50
+        return 60
     }
 }
 

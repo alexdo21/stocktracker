@@ -27,12 +27,6 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
     }()
     
     override func viewWillAppear(_ animated: Bool) {
-//        for cell in tableView.visibleCells {
-//            let resultCell = cell as! StockSearchResultCell
-//            if var stockMatch = resultCell.stockMatch, let _ = stocks.first(where: {$0.globalQuote.symbol == stockMatch.symbol}) {
-//                stockMatch.isFavorited = true
-//            }
-//        }
         self.tableView.reloadData()
     }
 
@@ -43,7 +37,7 @@ class SearchController: UIViewController, UISearchBarDelegate, UITableViewDelega
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "to the moon 🚀"
+        searchController.searchBar.placeholder = "Search for symbol"
         searchController.obscuresBackgroundDuringPresentation = false
         
         tableView.register(StockSearchResultCell.self, forCellReuseIdentifier: StockSearchResultCell.identifier)
