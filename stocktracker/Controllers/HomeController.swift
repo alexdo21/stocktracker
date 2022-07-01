@@ -9,15 +9,14 @@ import UIKit
 import Charts
 
 class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     var watchlistController: WatchlistController?
     var stocks: [StockQuote] {
         return watchlistController?.stocks ?? []
     }
     
-    let refreshControl: UIRefreshControl = {
+    lazy var refreshControl: UIRefreshControl = {
         let rc = UIRefreshControl()
-        rc.addTarget(HomeController.self, action: #selector(refreshWatchlist), for: .valueChanged)
+        rc.addTarget(self, action: #selector(refreshWatchlist), for: .valueChanged)
         return rc
     }()
     

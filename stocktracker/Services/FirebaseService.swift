@@ -11,9 +11,10 @@ import FirebaseDatabase
 class FirebaseService: NSObject {
     static let sharedInstance = FirebaseService()
     let database = Database.database().reference()
+    let WATCHLIST = "testlist"
     
     func listenForUserWatchlistAdd(completion: @escaping (String, String, String) -> ()) {
-        database.child("testlist").observe(.childAdded, with: { snapshot in
+        database.child(WATCHLIST).observe(.childAdded, with: { snapshot in
             if snapshot.exists() {
                 let stockId = snapshot.key
                 let stock = snapshot.value as! [String:Any]
@@ -25,7 +26,7 @@ class FirebaseService: NSObject {
     }
     
     func listenForUserWatchlistDelete(completion: @escaping (String) -> ()) {
-        database.child("testlist").observe(.childRemoved, with: { snapshot in
+        database.child(WATCHLIST).observe(.childRemoved, with: { snapshot in
             if snapshot.exists() {
                 completion(snapshot.key)
             }
@@ -33,7 +34,7 @@ class FirebaseService: NSObject {
     }
     
     func fetchUserWatchlist(completion: @escaping ([String:[String:String]]) -> ()) {
-        database.child("testlist").observeSingleEvent(of: .value, with: { snapshot in
+        database.child(WATCHLIST).observeSingleEvent(of: .value, with: { snapshot in
             if snapshot.exists() {
                 var userWatchlist = [String:[String:String]]()
                 for child in snapshot.children {
@@ -53,13 +54,13 @@ class FirebaseService: NSObject {
     
     func addStockToWatchlist(symbol: String, name: String, completion: @escaping (String) -> ()) {
         let watchlistValue: [String:String] = ["symbol": symbol, "name": name]
-        let reference = database.child("testlist").childByAutoId()
+        let reference = database.child(WATCHLIST).childByAutoId()
         reference.setValue(watchlistValue)
         completion(reference.key ?? "")
     }
     
     func deleteStockFromWatchlist(stockId: String, completion: @escaping () -> Void) {
-        database.child("testlist").child(stockId).removeValue()
+        database.child(WATCHLIST).child(stockId).removeValue()
         completion()
     }
 }

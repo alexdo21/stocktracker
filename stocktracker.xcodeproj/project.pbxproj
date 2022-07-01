@@ -23,7 +23,6 @@
 		D6A2452926B8416E00012125 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2452826B8416E00012125 /* HomeController.swift */; };
 		D6A2452E26B8417100012125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452D26B8417100012125 /* Assets.xcassets */; };
 		D6A2453126B8417100012125 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A2452F26B8417100012125 /* LaunchScreen.storyboard */; };
-		D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */; };
 		D6A2453F26B9C78100012125 /* StockQuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2453E26B9C78100012125 /* StockQuoteCell.swift */; };
 		D6A2454226B9C80700012125 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454126B9C80700012125 /* Stock.swift */; };
 		D6A2454526B9C8AA00012125 /* AlphaVantageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A2454426B9C8AA00012125 /* AlphaVantageService.swift */; };
@@ -74,7 +73,6 @@
 		D6A2452D26B8417100012125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6A2453026B8417100012125 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6A2453226B8417100012125 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		D6A2453E26B9C78100012125 /* StockQuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockQuoteCell.swift; sourceTree = "<group>"; };
 		D6A2454126B9C80700012125 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		D6A2454426B9C8AA00012125 /* AlphaVantageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageService.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 		D6A2453826B9C28900012125 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D6A2453926B9C29500012125 /* CustomCollectionViewCell.swift */,
 				D6C622AE27AC559600A4F11F /* CustomTableViewCell.swift */,
 			);
 			path = Base;
@@ -427,7 +424,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6A2453A26B9C29500012125 /* CustomCollectionViewCell.swift in Sources */,
 				D63AD8CE27D053A5006B09AB /* StockPriceView.swift in Sources */,
 				D6F7AD6527BB71CF0057D50F /* StockChartController.swift in Sources */,
 				D6A2454B26BC633F00012125 /* SearchController.swift in Sources */,

@@ -74,6 +74,5 @@ class DashboardView: UIView {
         stockName.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: stockInfoContainer.topAnchor, right: stockPriceView.leftAnchor, padding: .init(top: 13, left: 13, bottom: 20, right: 13))
         stockPriceView.anchor(top: self.topAnchor, left: stockName.rightAnchor, bottom: stockInfoContainer.topAnchor, right: self.rightAnchor, padding: .init(top: 16, left: 13, bottom: 10, right: 20))
         stockInfoContainer.anchor(top: stockPriceView.bottomAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, padding: .init(top: 0, left: 12, bottom: 7, right: 12))
-        
     }
 }
