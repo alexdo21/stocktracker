@@ -2,6 +2,8 @@
 
 A mobile application that tracks user favorited stock tickers from Alpha Vantage API.
 
+[Click here to watch a demo of Stocktracker](https://www.youtube.com/watch?v=wzaG_p-C9ZY)
+
 The tech stack of Stocktracker is:
 - Swift and UIKit with Firebase integration and [Charts](https://github.com/danielgindi/Charts), a library for rendering beautiful charts.
 - Firebase NoSQL database.
